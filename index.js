@@ -14,10 +14,7 @@ function setup(){
       let v = createVector(i * r, j * r);
       vectors.push(v);
     }
-
-
   }
-
 }
 
 class mouseLight {
@@ -31,11 +28,7 @@ class mouseLight {
     let part1 = (this.x - vector.x) * (this.x - vector.x)
     let part2 = (this.y - vector.y) * (this.y - vector.y)
     let c1c2 =  Math.sqrt(part1 + part2)
-    if(c1c2 == (this.diameter/2 + r) || c1c2 < this.diameter/2 + r){
-      return true
-    }else{
-      return false
-    }
+    return (c1c2 == (this.diameter/2 + r) || c1c2 < this.diameter/2 + r)
   }
 }
 
@@ -43,7 +36,6 @@ function draw(){
   background(0)
 
   let light = new mouseLight(mouseX, mouseY);
-
 
   for(let i = 0; i < vectors.length; i++){
     let vector = vectors[i];
@@ -58,7 +50,7 @@ function draw(){
   }
 
   zoff += .01;
-  noLoop()
+  // noLoop()
 }
 
 
